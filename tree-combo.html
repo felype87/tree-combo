@@ -25,8 +25,17 @@
 		properties : {
 			treedata : Object,
 
-			label : String
+			label : String,
+			
+			treedatastring : {
+				type: String,
+				observer: '_treedatastringChanged'
+			}
 		},
+		
+		_treedatastringChanged: function(newValue, oldValue) {
+			this.treedata = JSON.parse(newValue);
+  		},
 
 		attached : function() {
 			tree = document.querySelector("file-tree");
@@ -35,9 +44,9 @@
 
 			tree.addEventListener('folderSelected', function(event) {
 				dropdown.label = event.target.data.name;
+				dropdown.close();
 			});
 		}
-
 	});
 </script> </dom-module>
 
