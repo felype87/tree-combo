@@ -30,7 +30,9 @@
 			treedatastring : {
 				type: String,
 				observer: '_treedatastringChanged'
-			}
+			},
+			
+			selecteditem : String
 		},
 		
 		_treedatastringChanged: function(newValue, oldValue) {
@@ -45,6 +47,7 @@
 			tree.addEventListener('folderSelected', function(event) {
 				dropdown.label = event.target.data.name;
 				dropdown.close();
+				document.querySelector("tree-combo").selecteditem = event.target.data.name;
 			});
 		},
 		
