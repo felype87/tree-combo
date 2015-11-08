@@ -46,6 +46,16 @@
 				dropdown.label = event.target.data.name;
 				dropdown.close();
 			});
+		},
+		
+		getSelected : function() {
+			tree = document.querySelector("file-tree");
+			
+			if(tree.selected != null){
+				return tree.selected.data.name;
+			} 
+			
+			return null;
 		}
 	});
 </script> </dom-module>
